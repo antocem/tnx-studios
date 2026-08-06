@@ -1,0 +1,166 @@
+<div class="calcModal" id="calcModal" role="dialog" aria-modal="true" aria-labelledby="calcTitle">
+  <div class="calcBack" data-calcclose></div>
+  <div class="calcPanel" id="calcPanel">
+
+    <div class="calcHead">
+      <div>
+        <div class="calcEyebrow"><i></i>Campaign planner</div>
+        <h3 id="calcTitle">Size your content system</h3>
+      </div>
+      <div class="calcHeadRight">
+        <div class="cMarkupBox">
+          <label for="cMult">Markup</label>
+          <button type="button" class="cmBtn" data-mstep="-0.25" aria-label="Lower markup">&#8722;</button>
+          <input type="number" id="cMult" value="3.5" min="1" step="0.25" aria-label="Markup multiplier">
+          <span class="cmx">&#215;</span>
+          <button type="button" class="cmBtn" data-mstep="0.25" aria-label="Raise markup">+</button>
+          <output id="cMarginOut">71% margin</output>
+        </div>
+        <div class="cToggle" role="group" aria-label="View mode">
+          <button data-view="internal" class="on">Internal</button>
+          <button data-view="client">Client</button>
+        </div>
+        <div class="calcCur" role="group" aria-label="Currency">
+          <button class="on" data-cur="EUR">EUR</button>
+          <button data-cur="USD">USD</button>
+        </div>
+        <button class="calcX" data-calcclose aria-label="Close planner"><svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+      </div>
+    </div>
+
+    <div class="calcMain" id="calcMain">
+
+      <!-- COLUMN A -->
+      <div class="calcCol colA">
+        <div class="colTitle"><span class="cnum">1</span><h4>The brief</h4><span class="colHint">drives everything</span></div>
+
+        <div class="cfield">
+          <div class="clab"><b>Industry</b></div>
+          <div class="cchips" id="cIndustry" role="group" aria-label="Industry"></div>
+        </div>
+        <div class="cfield">
+          <div class="clab"><b>Products to promote</b><i id="cProdVal">8</i></div>
+          <input type="range" class="crange" id="cProducts" min="1" max="60" value="8" aria-label="Number of products">
+          <div class="crangeScale"><span>1</span><span>60</span></div>
+        </div>
+        <div class="cfield">
+          <div class="clab"><b>Posting frequency</b></div>
+          <div class="cchips" id="cFreq" role="group" aria-label="Posting frequency"></div>
+        </div>
+        <div class="cfield">
+          <div class="clab"><b>Campaign duration</b></div>
+          <div class="cchips" id="cMonths" role="group" aria-label="Campaign duration"></div>
+        </div>
+
+        <div class="colTitle" style="margin-top:16px"><span class="cnum">2</span><h4>Primary goal</h4></div>
+        <p class="chelp">Re-weights the mix. <b>Paid Ads</b> loads up on video variations, <b>Catalogue</b> shifts into imagery.</p>
+        <div class="cchips goal" id="cGoal" role="group" aria-label="Primary goal"></div>
+      </div>
+
+      <!-- COLUMN B -->
+      <div class="calcCol colB">
+        <div class="colTitle"><span class="cnum">3</span><h4>The content plan</h4><span class="colHint" id="cAutoNote">pre-filled from your brief</span></div>
+
+        <div class="cmode" role="group" aria-label="Planning mode">
+          <button class="on" data-mode="content">Start from content</button>
+          <button data-mode="budget">Start from budget</button>
+          <button data-mode="platform">Start from platform</button>
+        </div>
+
+        <div class="cbudget" id="cBudgetBox" style="display:none">
+          <div class="cbudgetTop"><b>Budget available</b><i id="cBudgetVal">&#8212;</i></div>
+          <input type="range" class="crange" id="cBudget" min="250" max="25000" step="50" value="1500" aria-label="Budget">
+          <div class="crangeScale"><span id="cBudgetMin">250</span><span id="cBudgetMax">25,000</span></div>
+          <p class="cbudgetNote" id="cBudgetNote"></p>
+        </div>
+
+        <div id="cDelivs"></div>
+        <div id="cPlatformPanel" style="display:none"></div>
+
+        <div class="crec" id="cRec">
+          <span class="crecIco"><svg viewBox="0 0 24 24"><path d="M9 18h6M10 22h4M12 2a7 7 0 00-4 12.7V17h8v-2.3A7 7 0 0012 2z"/></svg></span>
+          <div class="crecTxt"><b>Recommended</b><p id="cRecTxt"></p></div>
+          <button class="crecBtn" id="cRecApply">Apply</button>
+        </div>
+      </div>
+
+      <!-- COLUMN C -->
+      <div class="calcCol colC">
+        <div class="colTitle"><span class="cnum">4</span><h4>What you get</h4><span class="colHint">live</span></div>
+
+        <div class="csect">
+          <div class="csectHead prod">
+            <svg viewBox="0 0 24 24"><path d="M12 3l9 5-9 5-9-5 9-5z"/><path d="M3 13l9 5 9-5"/></svg>
+            <h5>Production</h5><span class="csectHint">what gets made</span>
+          </div>
+          <div class="clines" id="cLines"></div>
+        </div>
+
+        <div class="csect">
+          <div class="csectHead impact">
+            <svg viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg>
+            <h5>Marketing impact</h5><span class="csectHint" id="cCapPct">0%</span>
+          </div>
+          <div id="cPlatRows"></div>
+        </div>
+
+        <div class="cvsCard" id="cVsCard">
+          <div class="cvsCardTop"><svg viewBox="0 0 24 24"><path d="M3 8.5A2.5 2.5 0 015.5 6h2L9 4h6l1.5 2h2A2.5 2.5 0 0121 8.5v9A2.5 2.5 0 0118.5 20h-13A2.5 2.5 0 013 17.5v-9z"/><circle cx="12" cy="12.5" r="3.4"/></svg><b>Versus filming sessions</b></div>
+          <div id="cVsRows"></div>
+          <div class="cvsBig"><b id="cVsMult">&#8212;</b><span>more output<br>per euro</span></div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="calcBar" id="calcBar">
+      <div class="cbGroup">
+        <div class="cbStat"><b id="cStatAssets">0</b><i>Platform assets</i></div>
+        <div class="cbStat"><b id="cStatTime">&#8212;</b><i>Production time</i></div>
+      </div>
+      <div class="cbSep"></div>
+      <div class="cbGroup internalOnly">
+        <div class="cbStat"><b id="cCost">&#8212;</b><i>Production cost</i></div>
+        <div class="cbStat"><b id="cPerAsset">&#8212;</b><i>Cost per asset</i></div>
+        <div class="cbStat"><b id="cMargin">&#8212;</b><i>Gross margin</i></div>
+      </div>
+      <p class="cnote" id="cNote"></p>
+      <div class="cbPrice"><i id="cPriceLab">Client investment</i><b id="cPrice">&#8212;</b></div>
+      <button class="btn btn-primary" id="cGenProp">Generate proposal <span class="arw">&#8594;</span></button>
+    </div>
+
+    <!-- PROPOSAL -->
+    <div class="calcProp" id="calcProp">
+      <div class="cPropBar">
+        <button class="btn btn-ghost" id="cPropBack">&#8592; Back to planner</button>
+        <button class="btn btn-ghost" id="cPropPrint">Save as PDF</button>
+      </div>
+      <div class="cprop" id="cProp">
+        <div class="cpropHead">
+          <div class="cpropMark"><i class="lmark"></i></div>
+          <h4 id="cPropTitle">Content System Proposal</h4>
+          <p>Prepared by TNX Studios &#183; production sized from your brief</p>
+          <div class="cpropMeta" id="cPropMeta"></div>
+        </div>
+        <div class="cpropSect"><h5>What you receive</h5><div class="cpropList" id="cPropReceive"></div></div>
+        <div class="cpropSect"><h5>Recommended publishing plan</h5>
+          <p class="chelp">How this library splits across channels &#8212; drag any slider in step 3 to change the mix.</p>
+          <div class="cpropPlat" id="cPropPublish"></div></div>
+        <div class="cpropSect"><h5>Cost per published asset</h5>
+          <p class="chelp">Traditional production is priced per shoot. A content system is priced per asset.</p>
+          <div class="croi"><div class="croiGrid" id="cRoiGrid"></div></div></div>
+        <div class="cpropSect"><h5>Compared with traditional production</h5>
+          <p class="chelp">Same output, sourced the conventional way, benchmarked at <b>&#8364;1,500 per filming session</b> delivering 3 clips and 10 photos.</p>
+          <div class="ccompare" id="cCompare"></div>
+          <p class="chelp" id="cCompareNote" style="margin:14px 0 0"></p></div>
+        <div class="cpropSect"><h5>Timeline and investment</h5><div class="cpropInvest" id="cPropInvest"></div></div>
+        <div class="cpropSect"><h5>Next steps</h5>
+          <div class="cpropNext">
+            <a class="btn btn-primary" id="cPropBook" target="_blank" rel="noopener">Book kickoff call <span class="arw">&#8594;</span></a>
+          </div></div>
+        <p class="cpropFine" id="cPropFine"></p>
+      </div>
+    </div>
+
+  </div>
+</div>
