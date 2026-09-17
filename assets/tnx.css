@@ -133,6 +133,9 @@ h4{font-size:16.5px;line-height:1.25;letter-spacing:-.015em}
 .brandtx{font-family:var(--f-disp);font-weight:700;font-size:14.5px;letter-spacing:.02em;
   color:var(--ink);white-space:nowrap}
 .brandtx i{font-style:normal;color:var(--muted);font-weight:500}
+.logow{display:block;height:34px;width:auto;flex:0 0 auto}
+@media(max-width:640px){.logow{height:26px}}
+@media(max-width:420px){.logow{height:21px}}
 
 .navlinks{display:flex;align-items:center;gap:3px;margin-left:auto}
 .navlink{
