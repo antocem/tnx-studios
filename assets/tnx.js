@@ -3,7 +3,7 @@
   'use strict';
 
   var CAL_URL='https://calendar.app.google/AH6YUHjwGhJ7ru8NA';
-  var MAIL='antoce@technexa.eu';
+  var MAIL='antoce@reachers.agency';
 
   /* ---------- sticky header ---------- */
   var nav=document.querySelector('.nav');
