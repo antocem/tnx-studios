@@ -1,0 +1,372 @@
+/* ==========================================================================
+   REACHERS — brand stylesheet
+   Built to the rebrand moodboard: Electric Green, Deep Black, Sora + Inter,
+   black & white photography with neon marker annotation.
+   ========================================================================== */
+
+*{box-sizing:border-box}
+
+:root{
+  /* core palette */
+  --green:#C6FF00;
+  --black:#0A0A0A;
+  --charcoal:#1A1A1A;
+  --graphite:#2E2E2E;
+  --off:#F5F5F5;
+
+  /* accents */
+  --yellow:#FFF500;
+  --pink:#FF2095;
+  --blue:#00E5FF;
+
+  /* type */
+  --sora:'Sora',system-ui,sans-serif;
+  --inter:'Inter',system-ui,sans-serif;
+  --hand:'Caveat','Comic Sans MS',cursive;
+
+  --gut:clamp(18px,4.6vw,72px);
+  --maxw:1440px;
+  --e:cubic-bezier(.16,1,.3,1);
+}
+
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--black);color:var(--off);
+  font-family:var(--inter);font-size:16px;line-height:1.6;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+img,video,svg{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+::selection{background:var(--green);color:var(--black)}
+
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 var(--gut)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* ==========================================================================
+   TYPE
+   ========================================================================== */
+.h1{font-family:var(--sora);font-weight:800;text-transform:uppercase;
+  font-size:clamp(40px,8.4vw,124px);line-height:.92;letter-spacing:-.035em;margin:0}
+.h2{font-family:var(--sora);font-weight:800;text-transform:uppercase;
+  font-size:clamp(30px,5.2vw,74px);line-height:.96;letter-spacing:-.03em;margin:0}
+.h3{font-family:var(--sora);font-weight:700;text-transform:uppercase;
+  font-size:clamp(22px,2.8vw,40px);line-height:1;letter-spacing:-.025em;margin:0}
+.h4{font-family:var(--sora);font-weight:700;text-transform:uppercase;
+  font-size:clamp(17px,1.5vw,22px);line-height:1.12;letter-spacing:-.01em;margin:0}
+.lede{font-size:clamp(15.5px,1.15vw,18px);line-height:1.6;margin:0;max-width:46ch;
+  color:rgba(245,245,245,.74)}
+.on-light .lede{color:rgba(10,10,10,.72)}
+
+/* stacked micro label, e.g. CREATOR / MARKETING / FOR A / HUMAN / WORLD. */
+.stack{font-family:var(--sora);font-weight:600;font-size:11px;letter-spacing:.22em;
+  text-transform:uppercase;line-height:1.85;color:rgba(245,245,245,.6);margin:0}
+.on-light .stack{color:rgba(10,10,10,.55)}
+
+.eyebrow{font-family:var(--sora);font-weight:700;font-size:11px;letter-spacing:.24em;
+  text-transform:uppercase;color:rgba(245,245,245,.55);margin:0}
+.on-light .eyebrow{color:rgba(10,10,10,.5)}
+
+.grn{color:var(--green)}
+
+/* highlighter, as used on OPPORTUNITY in the moodboard */
+.mark{position:relative;color:var(--black);padding:0 .1em;
+  background:var(--green);box-decoration-break:clone;-webkit-box-decoration-break:clone}
+
+/* handwritten marker annotation */
+.hand{font-family:var(--hand);font-weight:700;color:var(--green);
+  font-size:clamp(22px,2.6vw,38px);line-height:1.02;transform:rotate(-7deg);
+  display:inline-block;letter-spacing:.01em}
+.hand.sm{font-size:clamp(17px,1.7vw,24px)}
+.hand.dark{color:var(--black)}
+
+/* ==========================================================================
+   SCRIBBLES — hand-drawn marks laid over photography
+   ========================================================================== */
+.scrib{position:absolute;pointer-events:none;color:var(--green);z-index:3}
+.scrib svg{width:100%;height:100%;overflow:visible}
+.scrib path,.scrib polyline{
+  fill:none;stroke:currentColor;stroke-width:7;
+  stroke-linecap:round;stroke-linejoin:round;
+  stroke-dasharray:var(--len,400);stroke-dashoffset:var(--len,400);
+}
+[data-r].on .scrib path,[data-r].on .scrib polyline,
+.scrib.draw path,.scrib.draw polyline{
+  animation:draw .85s var(--e) forwards;
+}
+@keyframes draw{to{stroke-dashoffset:0}}
+
+/* ==========================================================================
+   BUTTONS
+   ========================================================================== */
+.btn{
+  display:inline-flex;align-items:center;gap:11px;
+  font-family:var(--sora);font-weight:700;font-size:13px;
+  letter-spacing:.09em;text-transform:uppercase;
+  padding:16px 28px;border-radius:100px;border:1.5px solid transparent;
+  background:var(--green);color:var(--black);
+  transition:transform .2s var(--e),background .2s,color .2s,border-color .2s;
+  cursor:pointer;
+}
+.btn:hover{transform:translateY(-2px)}
+.btn svg{width:15px;height:15px;stroke:currentColor;stroke-width:2.2;fill:none}
+.btn.ghost{background:transparent;color:var(--off);border-color:rgba(245,245,245,.3)}
+.btn.ghost:hover{border-color:var(--green);color:var(--green)}
+.on-light .btn.ghost{color:var(--black);border-color:rgba(10,10,10,.3)}
+.on-light .btn.ghost:hover{border-color:var(--black)}
+.btn.dark{background:var(--black);color:var(--green)}
+.btn.sm{padding:11px 20px;font-size:11.5px}
+.btnrow{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+
+/* play / showreel */
+.play{display:inline-flex;align-items:center;gap:14px;font-family:var(--sora);
+  font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;cursor:pointer}
+.play i{width:46px;height:46px;border-radius:50%;border:1.5px solid rgba(245,245,245,.3);
+  display:grid;place-items:center;transition:border-color .22s,background .22s}
+.play:hover i{border-color:var(--green);background:var(--green)}
+.play i svg{width:13px;height:13px;fill:currentColor;transition:fill .22s}
+.play:hover i svg{fill:var(--black)}
+
+/* ==========================================================================
+   HEADER
+   ========================================================================== */
+.nav{position:sticky;top:0;z-index:80;background:rgba(10,10,10,.82);
+  backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  border-bottom:1px solid rgba(245,245,245,.08)}
+.navin{display:flex;align-items:center;justify-content:space-between;gap:20px;
+  height:78px;max-width:var(--maxw);margin:0 auto;padding:0 var(--gut)}
+.logo{height:21px;width:auto}
+.navlinks{display:flex;align-items:center;gap:clamp(16px,2.2vw,34px)}
+.navlinks a:not(.btn){font-family:var(--sora);font-weight:600;font-size:11.5px;
+  letter-spacing:.14em;text-transform:uppercase;color:rgba(245,245,245,.72);
+  transition:color .2s}
+.navlinks a:not(.btn):hover{color:var(--green)}
+.burger{display:none;width:44px;height:44px;border:0;background:transparent;
+  cursor:pointer;padding:0;place-items:center}
+.burger span{display:block;width:22px;height:2px;background:var(--off);
+  position:relative;transition:background .2s}
+.burger span::before,.burger span::after{content:'';position:absolute;left:0;
+  width:22px;height:2px;background:var(--off);transition:transform .25s var(--e)}
+.burger span::before{top:-7px}
+.burger span::after{top:7px}
+@media(max-width:920px){
+  .navlinks{display:none}
+  .burger{display:grid}
+}
+
+/* full-screen menu */
+.menu{position:fixed;inset:0;z-index:90;background:var(--charcoal);
+  display:grid;grid-template-rows:auto 1fr auto;padding:0;
+  opacity:0;visibility:hidden;transition:opacity .3s,visibility .3s}
+.menu.open{opacity:1;visibility:visible}
+.menutop{display:flex;align-items:center;justify-content:space-between;
+  height:78px;padding:0 var(--gut);border-bottom:1px solid rgba(245,245,245,.1)}
+.menux{width:44px;height:44px;border:0;background:transparent;color:var(--off);
+  cursor:pointer;font-size:26px;line-height:1;display:grid;place-items:center}
+.menulinks{display:flex;flex-direction:column;justify-content:center;gap:4px;
+  padding:0 var(--gut)}
+.menulinks a{font-family:var(--sora);font-weight:700;font-size:clamp(26px,7vw,42px);
+  text-transform:uppercase;letter-spacing:-.02em;padding:9px 0;
+  border-bottom:1px solid rgba(245,245,245,.08);transition:color .2s,padding-left .2s}
+.menulinks a:hover{color:var(--green);padding-left:10px}
+.menufoot{padding:24px var(--gut) 34px;display:flex;flex-wrap:wrap;gap:18px;
+  align-items:center;justify-content:space-between;border-top:1px solid rgba(245,245,245,.1)}
+.social{display:flex;gap:14px}
+.social a{width:40px;height:40px;border-radius:50%;border:1px solid rgba(245,245,245,.2);
+  display:grid;place-items:center;transition:border-color .2s,background .2s}
+.social a:hover{border-color:var(--green);background:var(--green);color:var(--black)}
+.social svg{width:17px;height:17px;fill:currentColor}
+
+/* ==========================================================================
+   SECTION SHELLS
+   ========================================================================== */
+.sect{padding:clamp(56px,7.4vw,130px) 0;position:relative}
+.sect-tight{padding:clamp(40px,5vw,84px) 0}
+.on-light{background:var(--off);color:var(--black)}
+.on-green{background:var(--green);color:var(--black)}
+.on-char{background:var(--charcoal)}
+
+/* ==========================================================================
+   MEDIA — black & white treatment with neon on top
+   ========================================================================== */
+.bw{position:relative;overflow:hidden;background:var(--graphite)}
+.bw video,.bw img{width:100%;height:100%;object-fit:cover;
+  filter:grayscale(1) contrast(1.08) brightness(.95);
+  transition:filter .6s var(--e),transform .8s var(--e)}
+.bw:hover video,.bw:hover img{filter:grayscale(0) contrast(1.02) brightness(1)}
+.bw.keep video,.bw.keep img{filter:grayscale(1) contrast(1.08)}
+
+/* ==========================================================================
+   HERO
+   ========================================================================== */
+.hero{position:relative;padding:clamp(34px,4.4vw,64px) 0 0}
+.herogrid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,3.6vw,64px);
+  align-items:center}
+@media(max-width:980px){.herogrid{grid-template-columns:1fr;gap:30px}}
+.herostack{display:flex;gap:26px;align-items:flex-start}
+.heroh{margin-top:clamp(20px,2.2vw,30px)}
+.herolede{margin-top:clamp(18px,2vw,26px)}
+.herobtns{margin-top:clamp(24px,2.8vw,36px)}
+
+.heromedia{position:relative}
+.heromedia .bw{aspect-ratio:4/5;border-radius:3px}
+@media(max-width:980px){.heromedia .bw{aspect-ratio:1/1}}
+/* crown scribble above the subject's head */
+.heromedia .crown{top:-26px;left:14%;width:clamp(74px,8vw,124px);height:auto}
+.heromedia .annot{position:absolute;right:-4px;bottom:34px;z-index:4;text-align:left}
+
+/* trusted-by strip under the hero */
+.trust{margin-top:clamp(34px,4vw,58px);padding:22px 0 0;
+  border-top:1px solid rgba(245,245,245,.1);
+  display:flex;align-items:center;gap:clamp(16px,2.4vw,36px);flex-wrap:wrap}
+.trust em{font-style:normal;font-family:var(--sora);font-weight:700;font-size:10.5px;
+  letter-spacing:.2em;text-transform:uppercase;color:rgba(245,245,245,.5);flex:0 0 auto}
+.trustnames{display:flex;align-items:center;gap:clamp(14px,2.2vw,32px);flex-wrap:wrap}
+.trustnames span{font-family:var(--sora);font-weight:600;font-size:clamp(13px,1.15vw,16px);
+  color:rgba(245,245,245,.62);transition:color .2s}
+.trustnames span:hover{color:var(--off)}
+
+/* ==========================================================================
+   MARQUEE
+   ========================================================================== */
+.mq{overflow:hidden;background:var(--green);color:var(--black);
+  padding:clamp(12px,1.5vw,20px) 0}
+.mqrow{display:flex;width:max-content;animation:mqm 30s linear infinite}
+.mq:hover .mqrow{animation-play-state:paused}
+.mqset{display:flex;align-items:center;flex:0 0 auto}
+.mqset b{font-family:var(--sora);font-weight:800;text-transform:uppercase;
+  font-size:clamp(20px,3.2vw,44px);letter-spacing:-.025em;
+  padding:0 clamp(12px,1.6vw,26px);white-space:nowrap}
+.mqset i{width:clamp(16px,1.8vw,26px);height:clamp(16px,1.8vw,26px);flex:0 0 auto}
+.mqset i svg{width:100%;height:100%;fill:none;stroke:var(--black);stroke-width:8;
+  stroke-linecap:round;stroke-linejoin:round}
+@keyframes mqm{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ==========================================================================
+   SPLIT — for brands / for creators
+   ========================================================================== */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:0}
+@media(max-width:920px){.split{grid-template-columns:1fr}}
+.splitcell{padding:clamp(30px,3.6vw,60px);position:relative;overflow:hidden;
+  display:grid;grid-template-columns:1fr auto;gap:clamp(18px,2.4vw,34px);align-items:center}
+@media(max-width:1180px){.splitcell{grid-template-columns:1fr;gap:26px}}
+.splitcell .h2{font-size:clamp(26px,3.3vw,46px)}
+.splitcell .lede{margin-top:16px;max-width:38ch}
+.splitcell .btnrow{margin-top:26px}
+.splitcell .annot{margin-top:18px}
+
+/* phone frame */
+.phone{width:clamp(150px,15vw,208px);aspect-ratio:9/19;border-radius:26px;
+  border:5px solid var(--black);overflow:hidden;position:relative;
+  box-shadow:0 26px 60px rgba(0,0,0,.4);background:var(--graphite);flex:0 0 auto}
+.on-light .phone{border-color:var(--black)}
+.phone video{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.08)}
+.phone .scrib{z-index:4}
+.phonewrap{position:relative;justify-self:center}
+.phonewrap .annot{position:absolute;left:-18px;bottom:26px;z-index:5}
+@media(max-width:1180px){.phonewrap{justify-self:start}}
+
+/* ==========================================================================
+   STATS
+   ========================================================================== */
+.statsgrid{display:grid;grid-template-columns:.85fr 1.15fr;gap:0}
+@media(max-width:920px){.statsgrid{grid-template-columns:1fr}}
+.statsblock{background:var(--green);color:var(--black);
+  padding:clamp(28px,3.4vw,54px);display:grid;align-content:center;gap:clamp(16px,2vw,28px)}
+.stat b{display:block;font-family:var(--sora);font-weight:800;
+  font-size:clamp(34px,4.4vw,66px);line-height:.88;letter-spacing:-.04em}
+.stat span{display:block;font-family:var(--sora);font-weight:700;font-size:11px;
+  letter-spacing:.2em;text-transform:uppercase;margin-top:7px;color:rgba(10,10,10,.68)}
+.statsphoto{position:relative;min-height:320px}
+.statsphoto .bw{position:absolute;inset:0}
+
+/* ==========================================================================
+   SERVICES
+   ========================================================================== */
+.svcgrid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,4vw,72px);align-items:start}
+@media(max-width:920px){.svcgrid{grid-template-columns:1fr;gap:30px}}
+.svclist{margin:clamp(26px,3vw,40px) 0 0;padding:0;list-style:none;
+  border-top:1px solid rgba(245,245,245,.14)}
+.svclist li{display:flex;align-items:baseline;gap:18px;padding:clamp(15px,1.7vw,22px) 0;
+  border-bottom:1px solid rgba(245,245,245,.14);
+  font-family:var(--sora);font-weight:700;text-transform:uppercase;
+  font-size:clamp(15px,1.6vw,22px);letter-spacing:-.005em;
+  transition:padding-left .3s var(--e),color .2s}
+.svclist li:hover{padding-left:12px;color:var(--green)}
+.svclist li s{text-decoration:none;font-size:11px;letter-spacing:.14em;
+  color:var(--green);font-weight:700;flex:0 0 auto;width:26px}
+.svcmedia{position:relative}
+.svcmedia .bw{aspect-ratio:3/4;border-radius:3px}
+
+/* ==========================================================================
+   WORK WALL
+   ========================================================================== */
+.wallhead{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;
+  flex-wrap:wrap;margin-bottom:clamp(26px,3.2vw,46px)}
+.wall{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(8px,1vw,14px)}
+@media(max-width:900px){.wall{grid-template-columns:repeat(2,1fr)}}
+.wcell{position:relative}
+.wcell .bw{aspect-ratio:9/16;border-radius:3px}
+.wcell:nth-child(even){margin-top:clamp(14px,2.4vw,40px)}
+.wmeta{margin-top:12px;display:flex;justify-content:space-between;gap:10px;align-items:baseline}
+.wmeta b{font-family:var(--sora);font-weight:700;font-size:13.5px;text-transform:uppercase;
+  letter-spacing:-.005em}
+.wmeta span{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;
+  color:rgba(245,245,245,.5)}
+
+/* ==========================================================================
+   ABOUT / CULTURE
+   ========================================================================== */
+.cultgrid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(26px,4vw,70px);align-items:center}
+@media(max-width:920px){.cultgrid{grid-template-columns:1fr;gap:30px}}
+.cultmedia{position:relative}
+.cultmedia .bw{aspect-ratio:4/3;border-radius:3px}
+.pillars{display:flex;flex-wrap:wrap;gap:10px;margin-top:clamp(24px,2.8vw,34px)}
+.pillars span{font-family:var(--sora);font-weight:700;font-size:10.5px;letter-spacing:.18em;
+  text-transform:uppercase;padding:9px 15px;border-radius:100px;
+  border:1px solid rgba(245,245,245,.22);color:rgba(245,245,245,.75)}
+
+/* ==========================================================================
+   CTA
+   ========================================================================== */
+.cta{background:var(--green);color:var(--black);text-align:center;
+  padding:clamp(56px,7.4vw,130px) 0;position:relative;overflow:hidden}
+.ctahand{font-family:var(--hand);font-weight:700;color:var(--black);
+  font-size:clamp(44px,9.4vw,140px);line-height:.94;transform:rotate(-3deg);
+  display:block;margin:0 auto}
+.cta .lede{margin:clamp(22px,2.4vw,32px) auto 0;color:rgba(10,10,10,.72);text-align:center}
+.cta .btnrow{justify-content:center;margin-top:clamp(26px,3vw,38px)}
+.ctafine{margin-top:20px;font-family:var(--sora);font-weight:600;font-size:11px;
+  letter-spacing:.16em;text-transform:uppercase;color:rgba(10,10,10,.55)}
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+.foot{background:var(--black);padding:clamp(40px,4.6vw,70px) 0 34px;
+  border-top:1px solid rgba(245,245,245,.1)}
+.footgrid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:clamp(22px,3vw,44px)}
+@media(max-width:900px){.footgrid{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.footgrid{grid-template-columns:1fr}}
+.footcol h5{font-family:var(--sora);font-weight:700;font-size:10.5px;letter-spacing:.2em;
+  text-transform:uppercase;color:rgba(245,245,245,.45);margin:0 0 16px}
+.footcol a,.footcol p{display:block;font-size:14px;color:rgba(245,245,245,.72);
+  margin:0 0 10px;transition:color .2s}
+.footcol a:hover{color:var(--green)}
+.footbot{margin-top:clamp(30px,3.4vw,48px);padding-top:20px;
+  border-top:1px solid rgba(245,245,245,.1);display:flex;justify-content:space-between;
+  gap:14px;flex-wrap:wrap;font-size:12px;color:rgba(245,245,245,.45)}
+
+/* ==========================================================================
+   REVEAL
+   ========================================================================== */
+[data-r]{opacity:0;transform:translateY(24px);
+  transition:opacity .75s var(--e),transform .75s var(--e)}
+[data-r].on{opacity:1;transform:none}
+
+@media(prefers-reduced-motion:reduce){
+  [data-r]{opacity:1;transform:none;transition:none}
+  .mqrow{animation:none}
+  .scrib path,.scrib polyline{stroke-dashoffset:0;animation:none}
+  .bw video,.bw img{transition:none}
+  .btn:hover{transform:none}
+  html{scroll-behavior:auto}
+}
