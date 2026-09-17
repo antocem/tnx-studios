@@ -1,5 +1,5 @@
 /* ==========================================================================
-   TNX Studios — Flagship layer
+   Reachers — Flagship layer
    Editorial scale, atmospheric depth, and the narrative sections.
    Depends on tnx.css for tokens (--cyan/--lime/--ink/--stroke/--f-disp/--e-out).
    ========================================================================== */
@@ -910,7 +910,7 @@
 .cmphead>span{font-family:var(--f-disp);font-size:9.6px;font-weight:600;
   letter-spacing:.15em;text-transform:uppercase;color:var(--muted-2)}
 .cmphead>.us{color:var(--lime)}
-/* the TNX column is the answer, so it gets the light */
+/* the Reachers column is the answer, so it gets the light */
 .cmprow>.us{color:var(--ink);position:relative;
   display:flex;align-items:flex-start;gap:8px}
 .cmp .cmprow:not(.cmphead)>.us{

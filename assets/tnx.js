@@ -1,4 +1,4 @@
-/* TNX Studios — shared site behaviour */
+/* Reachers — shared site behaviour */
 (function(){
   'use strict';
 
@@ -213,7 +213,7 @@
           '<a class="tnxc-opt" href="'+CAL_URL+'" target="_blank" rel="noopener">'+
             '<span class="tnxc-ico"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2.4"/><path d="M8 3v4M16 3v4M3 11h18"/></svg></span>'+
             '<b>Book a meeting</b><span>30 minutes, screen shared, real numbers.</span></a>'+
-          '<a class="tnxc-opt" href="mailto:'+MAIL+'?subject=TNX%20Studios%20%E2%80%94%20project%20enquiry">'+
+          '<a class="tnxc-opt" href="mailto:'+MAIL+'?subject=Reachers%20%E2%80%94%20project%20enquiry">'+
             '<span class="tnxc-ico"><svg viewBox="0 0 24 24"><rect x="2.5" y="5" width="19" height="14" rx="2.4"/><path d="M3 7l9 6 9-6"/></svg></span>'+
             '<b>Send an email</b><span>'+MAIL+'</span></a>'+
         '</div>'+

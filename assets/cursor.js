@@ -1,4 +1,4 @@
-/* TNX Studios — cursor, magnetism and ambient life
+/* Reachers — cursor, magnetism and ambient life
    Pointer-precise dot + a lagging ring that reads the thing underneath it.
    Skipped entirely on touch and when reduced motion is requested. */
 (function(){
@@ -141,7 +141,7 @@
   })();
 })();
 
-/* TNX Studios — headings that assemble, tiles that tilt */
+/* Reachers — headings that assemble, tiles that tilt */
 (function(){
   'use strict';
   if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;

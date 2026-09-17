@@ -1,4 +1,4 @@
-/* TNX Studios — creator programme motion layer */
+/* Reachers — creator programme motion layer */
 (function(){
   'use strict';
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;

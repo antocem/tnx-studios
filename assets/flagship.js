@@ -1,5 +1,5 @@
 /* ==========================================================================
-   TNX Studios — Flagship motion system
+   Reachers — Flagship motion system
    One rAF loop for all scroll-linked work. IntersectionObserver for reveals.
    Everything degrades to a static, readable page without JS or with
    prefers-reduced-motion.
