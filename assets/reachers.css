@@ -498,3 +498,62 @@ a{color:inherit;text-decoration:none}
   .reelbox{transition:none}
   .wdetail{transition:none}
 }
+
+/* ==========================================================================
+   PARTNERS
+   Mixed grid: brands we hold logo art for sit as marks, the rest as
+   wordmarks. Uniform tiles keep the two kinds reading as one set.
+   ========================================================================== */
+.plogos{
+  display:grid;grid-template-columns:repeat(6,1fr);gap:1px;
+  background:rgba(245,245,245,.1);
+  border:1px solid rgba(245,245,245,.1);
+  margin-top:clamp(28px,3.4vw,46px);
+}
+@media(max-width:1100px){.plogos{grid-template-columns:repeat(4,1fr)}}
+@media(max-width:760px){.plogos{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:460px){.plogos{grid-template-columns:repeat(2,1fr)}}
+
+.plogo{
+  background:var(--black);aspect-ratio:16/9;
+  display:grid;place-items:center;padding:clamp(12px,1.6vw,22px);
+  position:relative;transition:background .25s var(--e);
+}
+.plogo:hover{background:var(--charcoal)}
+.plogo img{
+  max-width:100%;max-height:52%;width:auto;height:auto;object-fit:contain;
+  opacity:.5;transition:opacity .25s var(--e),transform .3s var(--e);
+}
+.plogo:hover img{opacity:1;transform:scale(1.04)}
+.plogo b{
+  font-family:var(--sora);font-weight:700;
+  font-size:clamp(12px,1.15vw,16px);letter-spacing:-.01em;
+  color:rgba(245,245,245,.5);text-align:center;line-height:1.2;
+  transition:color .25s var(--e),transform .3s var(--e);
+}
+.plogo:hover b{color:var(--off);transform:scale(1.04)}
+/* a hairline of brand green on hover, so the grid feels alive */
+.plogo::after{
+  content:'';position:absolute;left:0;right:0;bottom:0;height:2px;
+  background:var(--green);transform:scaleX(0);transform-origin:left;
+  transition:transform .3s var(--e);
+}
+.plogo:hover::after{transform:scaleX(1)}
+
+.pfoot{
+  margin-top:clamp(20px,2.4vw,30px);
+  display:flex;gap:18px;flex-wrap:wrap;align-items:baseline;
+  justify-content:space-between;
+}
+.pfoot span{font-size:13.5px;color:rgba(245,245,245,.5)}
+
+/* nav platform link, marked as leaving the site */
+.plat{display:inline-flex;align-items:center;gap:6px}
+.plat svg{width:11px;height:11px;fill:none;stroke:currentColor;stroke-width:2.4;
+  stroke-linecap:round;stroke-linejoin:round;opacity:.7}
+.plat:hover svg{opacity:1}
+
+@media(prefers-reduced-motion:reduce){
+  .plogo img,.plogo b,.plogo::after{transition:none}
+  .plogo:hover img,.plogo:hover b{transform:none}
+}
