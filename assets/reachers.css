@@ -1,5 +1,5 @@
 /* ==========================================================================
-   REACHERS — brand stylesheet
+   REACHERS brand stylesheet
    Built to the rebrand moodboard: Electric Green, Deep Black, Sora + Inter,
    black & white photography with neon marker annotation.
    ========================================================================== */
@@ -80,7 +80,7 @@ a{color:inherit;text-decoration:none}
 .hand.dark{color:var(--black)}
 
 /* ==========================================================================
-   SCRIBBLES — hand-drawn marks laid over photography
+   SCRIBBLES: hand-drawn marks laid over photography
    ========================================================================== */
 .scrib{position:absolute;pointer-events:none;color:var(--green);z-index:3}
 /* the marks are <use> references, and <use> builds a shadow tree that outside
@@ -147,8 +147,14 @@ a{color:inherit;text-decoration:none}
   .navlinks{gap:0}
   .burger{display:grid}
 }
-/* narrow phones: shorten the label and drop the arrow so the header still fits
-   logo + CTA + burger on one line without wrapping */
+/* The wordmark is a wide lockup: at its 21px desktop height it measures about
+   231px, which is most of a phone screen and leaves no room for the CTA beside
+   it. Scale it by width on small screens so logo + CTA + burger fit one line
+   down to 320px. */
+@media(max-width:560px){
+  .navin .logo,.menutop .logo{height:auto;width:clamp(128px,38vw,170px)}
+}
+/* narrow phones: shorten the label and drop the arrow */
 @media(max-width:430px){
   .navlinks .btn.sm{padding:10px 15px;font-size:11px;gap:0}
   .navlinks .btn.sm svg{display:none}
@@ -188,7 +194,7 @@ a{color:inherit;text-decoration:none}
 .on-char{background:var(--charcoal)}
 
 /* ==========================================================================
-   MEDIA — black & white treatment with neon on top
+   MEDIA: black & white treatment with neon on top
    ========================================================================== */
 .bw{position:relative;overflow:hidden;background:var(--graphite)}
 .bw video,.bw img{width:100%;height:100%;object-fit:cover;
@@ -245,7 +251,7 @@ a{color:inherit;text-decoration:none}
 @keyframes mqm{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
 /* ==========================================================================
-   SPLIT — for brands / for creators
+   SPLIT: for brands and for creators
    ========================================================================== */
 .split{display:grid;grid-template-columns:1fr 1fr;gap:0}
 @media(max-width:920px){.split{grid-template-columns:1fr}}
