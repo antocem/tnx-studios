@@ -800,9 +800,13 @@
     function start(){
       if(running) return;
       running = true;
-      box.classList.add('rolling');
       show(0);
     }
+
+    /* Hold the poster until a frame has actually been painted. Dropping it the
+       moment the sequence starts leaves a grey box on a slow connection. */
+    vids[0].addEventListener('playing', function(){ box.classList.add('rolling'); }, {once:true});
+    vids[0].addEventListener('loadeddata', function(){ box.classList.add('rolling'); }, {once:true});
     function stop(){
       if(!running) return;
       running = false;
