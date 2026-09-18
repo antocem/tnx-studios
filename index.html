@@ -150,10 +150,8 @@
         <span class="scrib crown" style="--len:340">
           <svg><use href="#mk-crown"/></svg>
         </span>
-        <div class="bw">
-          <video src="https://d8j0ntlcm91z4.cloudfront.net/user_3FrjhNeJIhfvKQwoPywwyseIzai/hf_20260918_071659_1cdb39e1-cc64-49ae-bd26-c83a9a91d020.mp4" poster="https://d8j0ntlcm91z4.cloudfront.net/user_3FrjhNeJIhfvKQwoPywwyseIzai/hf_20260918_071511_ac2aecc7-9d00-4788-8b63-46ef495cc67f.png" autoplay muted loop playsinline
-                 aria-label="Creator portrait"></video>
-        </div>
+        <div class="bw herofilm" id="herofilm" role="img"
+             aria-label="Creators at work, filmed on the street and at home"></div>
         <span class="annot">
           <span class="hand">More than<br>influence.</span>
           <span class="scrib" style="position:relative;display:block;width:170px;height:20px;margin:2px 0 0 6px;--len:240">
@@ -712,6 +710,119 @@
     }
   });
 
+
+  /* ---------- hero film: seven clips cut in the browser ----------
+     Higgsfield's CDN refuses server side download, so the sequence could not be
+     flattened into one mp4. Each shot is its own <video>, parked on the second
+     where the moment actually reads. Only the current clip and the next one are
+     ever given preload, and the whole thing stops when the hero leaves the
+     viewport, so the cost stays close to a single looping file. ---------- */
+  (function(){
+    var box = document.getElementById('herofilm');
+    if(!box) return;
+
+    var CDN = 'https://d8j0ntlcm91z4.cloudfront.net/user_3FrjhNeJIhfvKQwoPywwyseIzai/';
+    var POSTER = CDN + 'hf_20260918_073745_89392dd8-7ccb-4af0-a276-a1832141d928.png';
+
+    /* in = where in the 4s clip the moment lands. hold = how long it stays up. */
+    var SHOTS = [
+      {f:'hf_20260918_073314_dbd8acb1-d7ad-4467-adab-8e30326e3a58.mp4', in:1.20, hold:0.70},
+      {f:'hf_20260918_073314_1690f2a7-43d6-4324-b39a-4ecfacbdf77b.mp4', in:1.40, hold:0.65},
+      {f:'hf_20260918_073314_c603f97b-15e7-432a-8f18-dcaf4988fff0.mp4', in:1.50, hold:0.60},
+      {f:'hf_20260918_073314_1af7be41-d272-4144-97fe-30efb1e48b26.mp4', in:1.30, hold:0.70},
+      {f:'hf_20260918_073314_83e8bf42-c6d4-43e1-917d-3e8dd9bbea14.mp4', in:1.50, hold:0.75},
+      {f:'hf_20260918_073314_12151755-acb7-4d06-b194-79c7d43db824.mp4', in:1.40, hold:0.60},
+      {f:'hf_20260918_073314_48b5da07-afe4-4291-bb94-a6131c937629.mp4', in:1.60, hold:0.70}
+    ];
+
+    var poster = new Image();
+    poster.className = 'hfposter';
+    poster.src = POSTER;
+    poster.alt = '';
+    poster.setAttribute('aria-hidden','true');
+    box.appendChild(poster);
+
+    var flash = document.createElement('div'); flash.className = 'hfflash'; box.appendChild(flash);
+    var bar   = document.createElement('div'); bar.className   = 'hfbar';   box.appendChild(bar);
+    ['tl','br'].forEach(function(c){
+      var d = document.createElement('div'); d.className = 'hfcorner ' + c; box.appendChild(d);
+    });
+
+    var vids = SHOTS.map(function(s, i){
+      var v = document.createElement('video');
+      v.muted = true; v.playsInline = true; v.loop = false;
+      v.setAttribute('muted',''); v.setAttribute('playsinline','');
+      v.preload = i < 2 ? 'auto' : 'none';
+      v.setAttribute('aria-hidden','true');
+      v.src = CDN + s.f;
+      box.appendChild(v);
+      return v;
+    });
+
+    var ticks = document.createElement('div'); ticks.className = 'hfticks';
+    ticks.setAttribute('aria-hidden','true');
+    SHOTS.forEach(function(){
+      var i = document.createElement('i'); i.appendChild(document.createElement('b')); ticks.appendChild(i);
+    });
+    box.appendChild(ticks);
+    var tickEls = [].slice.call(ticks.children);
+
+    if(window.matchMedia('(prefers-reduced-motion:reduce)').matches) return;  /* poster only */
+
+    var idx = 0, timer = null, running = false;
+
+    function warm(n){
+      var v = vids[n % vids.length];
+      if(v.preload !== 'auto'){ v.preload = 'auto'; v.load(); }
+    }
+
+    function show(n){
+      idx = n % vids.length;
+      var s = SHOTS[idx], v = vids[idx];
+
+      vids.forEach(function(o){ if(o !== v){ o.classList.remove('live'); o.pause(); } });
+
+      try{ v.currentTime = s.in; }catch(e){}
+      v.classList.add('live');
+      var p = v.play(); if(p && p.catch) p.catch(function(){});
+
+      tickEls.forEach(function(t, i){ t.classList.toggle('done', i <= idx); });
+
+      flash.classList.remove('hit');
+      void flash.offsetWidth;            /* force reflow so the animation re-runs */
+      flash.classList.add('hit');
+
+      warm(idx + 1);                     /* never more than one clip ahead */
+      clearTimeout(timer);
+      timer = setTimeout(function(){ show(idx + 1); }, s.hold * 1000);
+    }
+
+    function start(){
+      if(running) return;
+      running = true;
+      box.classList.add('rolling');
+      show(0);
+    }
+    function stop(){
+      if(!running) return;
+      running = false;
+      clearTimeout(timer);
+      vids.forEach(function(v){ v.pause(); });
+    }
+
+    if('IntersectionObserver' in window){
+      new IntersectionObserver(function(entries){
+        entries.forEach(function(x){ x.isIntersecting ? start() : stop(); });
+      }, {threshold:.2}).observe(box);
+    }else{
+      start();
+    }
+
+    /* a backgrounded tab throttles timers, which desyncs the cuts */
+    document.addEventListener('visibilitychange', function(){
+      if(document.hidden) stop();
+    });
+  })();
 
   /* ---------- partner logos: swap a wordmark for real art once it exists ---------- */
   [].slice.call(document.querySelectorAll('.plogo[data-logo]')).forEach(function(tile){
