@@ -32,6 +32,9 @@
 </head>
 <body>
 
+<a class="skip" href="#main">Skip to content</a>
+<div class="prog" aria-hidden="true"><i></i></div>
+
 <!-- hand-drawn marker marks, reused across the page -->
 <svg width="0" height="0" aria-hidden="true" style="position:absolute">
   <defs>
@@ -65,7 +68,7 @@
 <header class="nav">
   <div class="navin">
     <a href="index.html" aria-label="Reachers home">
-      <img class="logo" src="assets/reachers-wordmark.png" alt="Reachers">
+      <img class="logo" src="assets/reachers-wordmark.png" alt="Reachers" width="1065" height="97">
     </a>
     <nav class="navlinks">
       <a href="influencer-marketing.html">For Brands</a>
@@ -84,7 +87,7 @@
 <!-- ============================ mobile menu ============================ -->
 <div class="menu" id="menu" role="dialog" aria-modal="true" aria-label="Menu">
   <div class="menutop">
-    <img class="logo" src="assets/reachers-wordmark.png" alt="Reachers">
+    <img class="logo" src="assets/reachers-wordmark.png" alt="Reachers" width="1065" height="97">
     <button class="menux" type="button" aria-label="Close menu" data-menu-close>&times;</button>
   </div>
   <nav class="menulinks">
@@ -107,7 +110,7 @@
   </div>
 </div>
 
-<main>
+<main id="main">
 
 <!-- ============================ hero ============================ -->
 <section class="sect hero">
@@ -129,11 +132,13 @@
         <div class="btnrow herobtns" data-r>
           <a class="btn" href="mailto:antoce@reachers.agency">Let's create
             <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-          <span class="play" data-play>
-            <i><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></i>
+          <button class="play" type="button" data-reel-open>
+            <i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></i>
             Play showreel
-          </span>
+          </button>
         </div>
+
+        <span class="cue" data-r data-rd="0.4" aria-hidden="true"><s></s>Scroll</span>
       </div>
 
       <div class="heromedia" data-r data-rd="0.12">
@@ -141,7 +146,8 @@
           <svg><use href="#mk-crown"/></svg>
         </span>
         <div class="bw">
-          <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3FrjhNeJIhfvKQwoPywwyseIzai/hf_20260917_222628_296ea57b-31de-400e-8586-9c0b990ba691.png" alt="Creator portrait" loading="eager">
+          <video src="https://d8j0ntlcm91z4.cloudfront.net/user_3FrjhNeJIhfvKQwoPywwyseIzai/hf_20260918_065354_6e8d22bb-84f1-40ed-965d-2439ed342e98.mp4" poster="https://d8j0ntlcm91z4.cloudfront.net/user_3FrjhNeJIhfvKQwoPywwyseIzai/hf_20260917_222628_296ea57b-31de-400e-8586-9c0b990ba691.png" autoplay muted loop playsinline
+                 aria-label="Creator portrait"></video>
         </div>
         <span class="annot">
           <span class="hand">More than<br>influence.</span>
@@ -206,7 +212,7 @@
     </div>
     <div class="phonewrap">
       <div class="phone">
-        <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3FrjhNeJIhfvKQwoPywwyseIzai/hf_20260917_222627_bd7686d3-b7ae-487f-ae4e-f24b4c065d78.png" alt="Creator filming on a phone" loading="lazy">
+        <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3FrjhNeJIhfvKQwoPywwyseIzai/hf_20260917_222627_bd7686d3-b7ae-487f-ae4e-f24b4c065d78.png" alt="Creator filming on a phone" loading="lazy" width="1152" height="2048">
       </div>
       <span class="annot"><span class="hand sm dark">Same people,<br>different<br>perspectives.</span></span>
     </div>
@@ -225,7 +231,7 @@
     </div>
     <div class="phonewrap">
       <div class="phone">
-        <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3FrjhNeJIhfvKQwoPywwyseIzai/hf_20260917_222628_268e10f6-35a3-4304-8eb8-6ee4a1a063a4.png" alt="Creator pointing a phone at the camera" loading="lazy">
+        <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3FrjhNeJIhfvKQwoPywwyseIzai/hf_20260917_222628_268e10f6-35a3-4304-8eb8-6ee4a1a063a4.png" alt="Creator pointing a phone at the camera" loading="lazy" width="1152" height="2048">
         <span class="scrib" style="top:12%;left:24%;width:64px;height:48px;--len:340">
           <svg><use href="#mk-crown"/></svg>
         </span>
@@ -247,7 +253,7 @@
   </div>
   <div class="statsphoto" data-r data-rd="0.1">
     <div class="bw keep">
-      <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3FrjhNeJIhfvKQwoPywwyseIzai/hf_20260917_222628_7a00d906-fd19-4b13-ac14-804479e31ce5.png" alt="Creators from the Reachers network" loading="lazy">
+      <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3FrjhNeJIhfvKQwoPywwyseIzai/hf_20260917_222628_7a00d906-fd19-4b13-ac14-804479e31ce5.png" alt="Creators from the Reachers network" loading="lazy" width="2048" height="1365">
     </div>
     <span class="scrib" style="top:16%;right:12%;width:clamp(70px,7vw,110px);height:80px;--len:340">
       <svg><use href="#mk-crown"/></svg>
@@ -278,7 +284,7 @@
     </div>
     <div class="svcmedia" data-r data-rd="0.12">
       <div class="bw">
-        <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3FrjhNeJIhfvKQwoPywwyseIzai/hf_20260917_222628_185c8c43-a488-4bba-b582-3aeaa781f914.png" alt="Creator portrait" loading="lazy">
+        <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3FrjhNeJIhfvKQwoPywwyseIzai/hf_20260918_065403_1ffc7806-2037-418f-82f2-b814fd2c1c15.png" alt="A Reachers crew filming a creator on location" loading="lazy" width="2048" height="1536">
       </div>
       <span class="annot" style="position:absolute;right:-6px;top:-18px;z-index:4">
         <span class="hand sm">Real people,<br>real results.</span>
@@ -304,19 +310,43 @@
 
     <div class="wall">
       <div class="wcell" data-r>
-        <div class="bw"><video src="assets/media/v3.mp4" poster="assets/media/v3.jpg" autoplay muted loop playsinline></video></div>
+        <div class="bw"><video src="assets/media/v3.mp4" poster="assets/media/v3.jpg" autoplay muted loop playsinline></video>
+          <div class="wdetail"><ul>
+            <li>One creator, filmed on her own phone</li>
+            <li>Cut for Reels, TikTok and the product page</li>
+            <li>Ran organic, then behind paid budget</li>
+          </ul></div>
+        </div>
         <div class="wmeta"><b>Serum, in daylight</b><span>Beauty</span></div>
       </div>
       <div class="wcell" data-r data-rd="0.06">
-        <div class="bw"><video src="assets/media/v5.mp4" poster="assets/media/v5.jpg" autoplay muted loop playsinline></video></div>
+        <div class="bw"><video src="assets/media/v5.mp4" poster="assets/media/v5.jpg" autoplay muted loop playsinline></video>
+          <div class="wdetail"><ul>
+            <li>Studio pass for the hero product frames</li>
+            <li>Paired with creator-shot lifestyle</li>
+            <li>Stills pulled for the site and retail</li>
+          </ul></div>
+        </div>
         <div class="wmeta"><b>Fragrance, close up</b><span>Beauty</span></div>
       </div>
       <div class="wcell" data-r data-rd="0.12">
-        <div class="bw"><video src="assets/media/v2.mp4" poster="assets/media/v2.jpg" autoplay muted loop playsinline></video></div>
+        <div class="bw"><video src="assets/media/v2.mp4" poster="assets/media/v2.jpg" autoplay muted loop playsinline></video>
+          <div class="wdetail"><ul>
+            <li>Close product handling, shot in one session</li>
+            <li>Vertical master, re-cut four ways</li>
+            <li>Used across paid social and PDP</li>
+          </ul></div>
+        </div>
         <div class="wmeta"><b>In the hand</b><span>Skincare</span></div>
       </div>
       <div class="wcell" data-r data-rd="0.18">
-        <div class="bw"><video src="assets/media/v1.mp4" poster="assets/media/v1.jpg" autoplay muted loop playsinline></video></div>
+        <div class="bw"><video src="assets/media/v1.mp4" poster="assets/media/v1.jpg" autoplay muted loop playsinline></video>
+          <div class="wdetail"><ul>
+            <li>Macro texture pass, no talent needed</li>
+            <li>Shot alongside the main creator day</li>
+            <li>Fills the grid between creator drops</li>
+          </ul></div>
+        </div>
         <div class="wmeta"><b>Texture and light</b><span>Drinks</span></div>
       </div>
     </div>
@@ -328,7 +358,7 @@
   <div class="wrap cultgrid">
     <div class="cultmedia" data-r>
       <div class="bw">
-        <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3FrjhNeJIhfvKQwoPywwyseIzai/hf_20260917_222628_8a26902b-7275-4d75-9284-083d9ac9923f.png" alt="Creators on a city street" loading="lazy">
+        <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3FrjhNeJIhfvKQwoPywwyseIzai/hf_20260917_222628_8a26902b-7275-4d75-9284-083d9ac9923f.png" alt="Creators on a city street" loading="lazy" width="2048" height="1536">
       </div>
       <span class="scrib" style="top:-22px;left:10%;width:clamp(70px,7vw,108px);height:76px;--len:340">
         <svg><use href="#mk-crown"/></svg>
@@ -346,6 +376,82 @@
       <div class="btnrow" style="margin-top:32px">
         <a class="btn" href="mailto:antoce@reachers.agency">Get in touch
           <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================ faq ============================ -->
+<section class="sect on-char" id="faq">
+  <div class="wrap">
+    <div style="max-width:70ch" data-r>
+      <p class="eyebrow">Before you ask</p>
+      <h2 class="h2" style="margin-top:16px">The questions<br><span class="grn">brands actually ask.</span></h2>
+    </div>
+
+    <div class="faq" data-r data-rd="0.08">
+      <div class="faqi">
+        <button class="faqq" type="button" aria-expanded="false" aria-controls="fa1" id="fq1">
+          How do you pick the creators?
+          <s><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></s>
+        </button>
+        <div class="faqa" id="fa1" role="region" aria-labelledby="fq1">
+          <p>We start from your buyer, not from follower counts. We look at whose audience
+          actually overlaps with the people you sell to, whether their content is somewhere your
+          brand can sit comfortably, and what each one costs per person who genuinely watches.
+          You see the shortlist and the reasoning before anything is booked.</p>
+        </div>
+      </div>
+
+      <div class="faqi">
+        <button class="faqq" type="button" aria-expanded="false" aria-controls="fa2" id="fq2">
+          Do we have to use your production?
+          <s><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></s>
+        </button>
+        <div class="faqa" id="fa2" role="region" aria-labelledby="fq2">
+          <p>No. We will happily run a campaign against assets you already own. Most of the
+          advantage comes from being able to shoot a replacement the same week something stops
+          working, so brands that use both tend to move faster, but it is not a condition.</p>
+        </div>
+      </div>
+
+      <div class="faqi">
+        <button class="faqq" type="button" aria-expanded="false" aria-controls="fa3" id="fq3">
+          Who owns the content?
+          <s><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></s>
+        </button>
+        <div class="faqa" id="fa3" role="region" aria-labelledby="fq3">
+          <p>You do. Usage rights are agreed with each creator up front and written into the
+          booking, so you know exactly where and for how long you can run every asset. Nothing
+          goes live without your approval.</p>
+        </div>
+      </div>
+
+      <div class="faqi">
+        <button class="faqq" type="button" aria-expanded="false" aria-controls="fa4" id="fq4">
+          What does it cost?
+          <s><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></s>
+        </button>
+        <div class="faqa" id="fa4" role="region" aria-labelledby="fq4">
+          <p>It depends on the cast and the volume, so we do not publish a price list that would
+          be wrong for most people. Creator fees are itemised rather than marked up quietly, and
+          you see what each one costs. Tell us what you sell and roughly what you want to spend,
+          and we will come back with a plan and a number.</p>
+        </div>
+      </div>
+
+      <div class="faqi">
+        <button class="faqq" type="button" aria-expanded="false" aria-controls="fa5" id="fq5">
+          How long before anything is live?
+          <s><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></s>
+        </button>
+        <div class="faqa" id="fa5" role="region" aria-labelledby="fq5">
+          <p>Casting and contracting usually take the first stretch, filming follows quickly
+          after that. The honest answer is that it depends on how fast approvals come back from
+          your side, which is usually the real bottleneck. We will give you a dated plan on the
+          call rather than a vague promise here.</p>
+        </div>
       </div>
     </div>
   </div>
@@ -371,6 +477,23 @@
   </div>
 </section>
 
+
+<!-- ============================ showreel ============================ -->
+<div class="reel" id="reel" role="dialog" aria-modal="true" aria-label="Showreel" hidden>
+  <div class="reelbox">
+    <button class="reelx" type="button" aria-label="Close showreel" data-reel-close>&times;</button>
+    <video id="reelvid" playsinline muted
+           src="assets/media/v3.mp4" poster="assets/media/v3.jpg"></video>
+    <span class="reelcap" id="reelcap">Serum, in daylight</span>
+    <div class="reelnav" role="tablist" aria-label="Reel chapters">
+      <b class="on" role="tab" tabindex="0" aria-selected="true"  data-i="0"></b>
+      <b role="tab" tabindex="0" aria-selected="false" data-i="1"></b>
+      <b role="tab" tabindex="0" aria-selected="false" data-i="2"></b>
+      <b role="tab" tabindex="0" aria-selected="false" data-i="3"></b>
+    </div>
+  </div>
+</div>
+
 </main>
 
 <!-- ============================ footer ============================ -->
@@ -378,7 +501,7 @@
   <div class="wrap">
     <div class="footgrid">
       <div class="footcol">
-        <img class="logo" src="assets/reachers-wordmark.png" alt="Reachers" style="margin-bottom:18px">
+        <img class="logo" src="assets/reachers-wordmark.png" alt="Reachers" width="1065" height="97" style="margin-bottom:18px">
         <p style="max-width:32ch">Creator marketing for a human world. Creators. Brands.
           Culture. Real impact.</p>
       </div>
@@ -388,6 +511,7 @@
         <a href="influencers.html">For Creators</a>
         <a href="#work">Case Studies</a>
         <a href="#about">About</a>
+        <a href="#faq">FAQ</a>
       </div>
       <div class="footcol">
         <h5>What we do</h5>
@@ -413,37 +537,141 @@
 <script>
 (function(){
   'use strict';
+  var reduce=window.matchMedia('(prefers-reduced-motion:reduce)').matches;
 
-  // year
   var y=document.querySelector('[data-year]');
   if(y) y.textContent=new Date().getFullYear();
 
-  // ---- mobile menu ----
-  var menu=document.getElementById('menu');
+  /* ---------- helper: trap tab inside a container ---------- */
+  function trap(box,e){
+    var f=box.querySelectorAll('a[href],button:not([disabled]),video[controls],[tabindex]:not([tabindex="-1"])');
+    if(!f.length) return;
+    var first=f[0],last=f[f.length-1];
+    if(e.shiftKey && document.activeElement===first){ e.preventDefault(); last.focus(); }
+    else if(!e.shiftKey && document.activeElement===last){ e.preventDefault(); first.focus(); }
+  }
+
+  /* ---------- mobile menu ---------- */
+  var menu=document.getElementById('menu'), menuOpener=null;
   function setMenu(open){
     if(!menu) return;
     menu.classList.toggle('open',open);
     document.body.style.overflow=open?'hidden':'';
     var b=document.querySelector('[data-menu-open]');
     if(b) b.setAttribute('aria-expanded',String(open));
+    if(open){ menuOpener=document.activeElement; var l=menu.querySelector('a'); if(l) l.focus(); }
+    else if(menuOpener){ menuOpener.focus(); menuOpener=null; }
   }
+
+  /* ---------- showreel ---------- */
+  var reel=document.getElementById('reel');
+  var rv=document.getElementById('reelvid');
+  var rcap=document.getElementById('reelcap');
+  var dots=reel?[].slice.call(reel.querySelectorAll('.reelnav b')):[];
+  var clips=[
+    {src:'assets/media/v3.mp4',poster:'assets/media/v3.jpg',cap:'Serum, in daylight'},
+    {src:'assets/media/v5.mp4',poster:'assets/media/v5.jpg',cap:'Fragrance, close up'},
+    {src:'assets/media/v2.mp4',poster:'assets/media/v2.jpg',cap:'In the hand'},
+    {src:'assets/media/v1.mp4',poster:'assets/media/v1.jpg',cap:'Texture and light'}
+  ];
+  var ri=0, reelOpener=null;
+
+  function showClip(i){
+    ri=(i+clips.length)%clips.length;
+    var c=clips[ri];
+    rv.src=c.src; rv.poster=c.poster; rcap.textContent=c.cap;
+    dots.forEach(function(d,n){
+      d.classList.toggle('on',n===ri);
+      d.setAttribute('aria-selected',String(n===ri));
+    });
+    var pr=rv.play(); if(pr&&pr.catch) pr.catch(function(){});
+  }
+  function setReel(open){
+    if(!reel) return;
+    if(open){
+      reelOpener=document.activeElement;
+      reel.hidden=false;
+      requestAnimationFrame(function(){reel.classList.add('open')});
+      document.body.style.overflow='hidden';
+      showClip(0);
+      var x=reel.querySelector('[data-reel-close]'); if(x) x.focus();
+    }else{
+      reel.classList.remove('open');
+      document.body.style.overflow='';
+      rv.pause();
+      setTimeout(function(){reel.hidden=true},280);
+      if(reelOpener){ reelOpener.focus(); reelOpener=null; }
+    }
+  }
+  /* auto-advance through the reel */
+  if(rv) rv.addEventListener('ended',function(){showClip(ri+1)});
+
+  /* ---------- FAQ accordion ---------- */
+  function toggleFaq(btn){
+    var panel=document.getElementById(btn.getAttribute('aria-controls'));
+    if(!panel) return;
+    var open=btn.getAttribute('aria-expanded')==='true';
+    btn.setAttribute('aria-expanded',String(!open));
+    if(reduce){ panel.style.height=open?'0px':'auto'; return; }
+    if(open){
+      panel.style.height=panel.scrollHeight+'px';
+      requestAnimationFrame(function(){panel.style.height='0px'});
+    }else{
+      panel.style.height=panel.scrollHeight+'px';
+      panel.addEventListener('transitionend',function h(){
+        panel.style.height='auto'; panel.removeEventListener('transitionend',h);
+      });
+    }
+  }
+
+  /* ---------- one delegated click handler ---------- */
   document.addEventListener('click',function(e){
-    if(e.target.closest('[data-menu-open]')) setMenu(true);
-    else if(e.target.closest('[data-menu-close]')) setMenu(false);
+    if(e.target.closest('[data-menu-open]'))  return setMenu(true);
+    if(e.target.closest('[data-menu-close]')) return setMenu(false);
+    if(e.target.closest('[data-reel-open]'))  return setReel(true);
+    if(e.target.closest('[data-reel-close]')) return setReel(false);
+    if(reel && e.target===reel)               return setReel(false);
+    var dot=e.target.closest('.reelnav b');
+    if(dot) return showClip(+dot.getAttribute('data-i'));
+    var fq=e.target.closest('.faqq');
+    if(fq) return toggleFaq(fq);
   });
+
   document.addEventListener('keydown',function(e){
-    if(e.key==='Escape') setMenu(false);
+    if(e.key==='Escape'){
+      if(reel && reel.classList.contains('open')) return setReel(false);
+      if(menu && menu.classList.contains('open')) return setMenu(false);
+    }
+    if(e.key==='Tab'){
+      if(reel && reel.classList.contains('open')) return trap(reel,e);
+      if(menu && menu.classList.contains('open')) return trap(menu,e);
+    }
+    if(e.key==='Enter'||e.key===' '){
+      var dot=e.target.closest && e.target.closest('.reelnav b');
+      if(dot){ e.preventDefault(); showClip(+dot.getAttribute('data-i')); }
+    }
+    if(reel && reel.classList.contains('open')){
+      if(e.key==='ArrowRight') showClip(ri+1);
+      if(e.key==='ArrowLeft')  showClip(ri-1);
+    }
   });
 
-  // ---- showreel: scroll to the work wall ----
-  var play=document.querySelector('[data-play]');
-  if(play) play.addEventListener('click',function(){
-    var t=document.getElementById('work');
-    if(t) t.scrollIntoView({behavior:'smooth',block:'start'});
-  });
+  /* ---------- scroll progress ---------- */
+  var bar=document.querySelector('.prog i');
+  if(bar){
+    var ticking=false;
+    window.addEventListener('scroll',function(){
+      if(ticking) return;
+      ticking=true;
+      requestAnimationFrame(function(){
+        var h=document.documentElement.scrollHeight-window.innerHeight;
+        bar.style.width=(h>0?(window.scrollY/h)*100:0)+'%';
+        ticking=false;
+      });
+    },{passive:true});
+  }
 
-  // ---- reveal ----
-  var reduce=window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+  /* ---------- reveal ---------- */
   var els=[].slice.call(document.querySelectorAll('[data-r]'));
   if(reduce||!('IntersectionObserver' in window)){
     els.forEach(function(el){el.classList.add('on')});
@@ -460,17 +688,17 @@
     els.forEach(function(el){io.observe(el)});
   }
 
-  // ---- pause offscreen video, so a page of loops stays cheap ----
-  var vids=[].slice.call(document.querySelectorAll('video'));
+  /* ---------- pause offscreen video ---------- */
   if('IntersectionObserver' in window){
     var vio=new IntersectionObserver(function(entries){
       entries.forEach(function(en){
         var v=en.target;
-        if(en.isIntersecting){ var p=v.play(); if(p&&p.catch) p.catch(function(){}); }
+        if(v.closest('.reel')) return;           /* the modal drives its own playback */
+        if(en.isIntersecting){ var pp=v.play(); if(pp&&pp.catch) pp.catch(function(){}); }
         else v.pause();
       });
     },{rootMargin:'160px'});
-    vids.forEach(function(v){vio.observe(v)});
+    [].slice.call(document.querySelectorAll('video')).forEach(function(v){vio.observe(v)});
   }
 })();
 </script>
