@@ -769,7 +769,7 @@
 
     if(window.matchMedia('(prefers-reduced-motion:reduce)').matches) return;  /* poster only */
 
-    var idx = 0, timer = null, running = false;
+    var idx = 0, timer = null, running = false, inView = false;
 
     function warm(n){
       var v = vids[n % vids.length];
@@ -812,15 +812,22 @@
 
     if('IntersectionObserver' in window){
       new IntersectionObserver(function(entries){
-        entries.forEach(function(x){ x.isIntersecting ? start() : stop(); });
+        entries.forEach(function(x){
+          inView = x.isIntersecting;
+          (inView && !document.hidden) ? start() : stop();
+        });
       }, {threshold:.2}).observe(box);
     }else{
+      inView = true;
       start();
     }
 
-    /* a backgrounded tab throttles timers, which desyncs the cuts */
+    /* A backgrounded tab throttles timers, so the cuts drift out of sync. Stop
+       on the way out and pick it up again on the way back in. The observer will
+       not fire a second time on its own, because nothing about the intersection
+       changed while the tab was away, so the restart has to happen here. */
     document.addEventListener('visibilitychange', function(){
-      if(document.hidden) stop();
+      document.hidden ? stop() : (inView && start());
     });
   })();
 
