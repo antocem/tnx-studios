@@ -461,6 +461,7 @@ a{color:inherit;text-decoration:none}
   line-height:1.62;color:rgba(245,245,245,.72)}
 
 /* ---------- showreel modal ---------- */
+.reel[hidden]{display:none}
 .reel{position:fixed;inset:0;z-index:120;display:grid;place-items:center;
   padding:clamp(14px,3vw,40px);
   background:rgba(6,6,8,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
