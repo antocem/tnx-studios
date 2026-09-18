@@ -52,10 +52,13 @@
 .ticks i.done b{width:100%}
 
 /* --- version B only: acid-green interventions --- */
-.film.vb .flash{position:absolute;inset:0;z-index:4;background:var(--green);
-  opacity:0;mix-blend-mode:screen;pointer-events:none}
-.film.vb .flash.hit{animation:vbflash .18s steps(2) 1}
-@keyframes vbflash{0%{opacity:.5}100%{opacity:0}}
+/* a light-leak at the frame edge, not a wash over the subject: the brief is
+   explicit that the people must never go neon green */
+.film.vb .flash{position:absolute;inset:0;z-index:4;opacity:0;pointer-events:none;
+  background:radial-gradient(120% 90% at 50% 50%,
+    transparent 52%, rgba(198,255,0,.30) 88%, rgba(198,255,0,.62) 100%)}
+.film.vb .flash.hit{animation:vbflash .14s ease-out 1}
+@keyframes vbflash{0%{opacity:1}100%{opacity:0}}
 .film.vb .bar{position:absolute;left:0;right:0;height:3px;z-index:4;
   background:var(--green);opacity:.9;top:0;pointer-events:none;
   animation:vbbar 2.4s linear infinite}
