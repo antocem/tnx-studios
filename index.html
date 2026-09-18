@@ -297,15 +297,15 @@
       <div class="plogo"><img src="assets/logos/mono/brand14.png" alt="Antena 1" loading="lazy" width="420" height="120"></div>
       <div class="plogo"><img src="assets/logos/mono/brand13.png" alt="City Grill Delivery" loading="lazy" width="420" height="120"></div>
       <div class="plogo"><img src="assets/logos/mono/brand12.png" alt="Spitalul Monza" loading="lazy" width="420" height="120"></div>
-      <div class="plogo"><b>Nespresso</b></div>
-      <div class="plogo"><b>Bacardi</b></div>
-      <div class="plogo"><b>eMAG</b></div>
-      <div class="plogo"><b>Douglas</b></div>
-      <div class="plogo"><b>Mega Image</b></div>
-      <div class="plogo"><b>Fashion Days</b></div>
-      <div class="plogo"><b>Trendyol</b></div>
-      <div class="plogo"><b>Cupio</b></div>
-      <div class="plogo"><b>Ivatherm</b></div>
+      <div class="plogo" data-logo="assets/logos/mono/nespresso.png"><b>Nespresso</b></div>
+      <div class="plogo" data-logo="assets/logos/mono/bacardi.png"><b>Bacardi</b></div>
+      <div class="plogo" data-logo="assets/logos/mono/emag.png"><b>eMAG</b></div>
+      <div class="plogo" data-logo="assets/logos/mono/douglas.png"><b>Douglas</b></div>
+      <div class="plogo" data-logo="assets/logos/mono/mega-image.png"><b>Mega Image</b></div>
+      <div class="plogo" data-logo="assets/logos/mono/fashion-days.png"><b>Fashion Days</b></div>
+      <div class="plogo" data-logo="assets/logos/mono/trendyol.png"><b>Trendyol</b></div>
+      <div class="plogo" data-logo="assets/logos/mono/cupio.png"><b>Cupio</b></div>
+      <div class="plogo" data-logo="assets/logos/mono/ivatherm.png"><b>Ivatherm</b></div>
     </div>
 
     <div class="pfoot" data-r>
@@ -710,6 +710,20 @@
       if(e.key==='ArrowRight') showClip(ri+1);
       if(e.key==='ArrowLeft')  showClip(ri-1);
     }
+  });
+
+
+  /* ---------- partner logos: swap a wordmark for real art once it exists ---------- */
+  [].slice.call(document.querySelectorAll('.plogo[data-logo]')).forEach(function(tile){
+    var src=tile.getAttribute('data-logo');
+    var probe=new Image();
+    probe.onload=function(){
+      var name=(tile.querySelector('b')||{}).textContent||'';
+      tile.innerHTML='';
+      probe.alt=name; probe.loading='lazy';
+      tile.appendChild(probe);
+    };
+    probe.src=src;   /* if it 404s we simply keep the wordmark */
   });
 
   /* ---------- scroll progress ---------- */
