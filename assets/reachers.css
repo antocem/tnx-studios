@@ -557,3 +557,53 @@ a{color:inherit;text-decoration:none}
   .plogo img,.plogo b,.plogo::after{transition:none}
   .plogo:hover img,.plogo:hover b{transform:none}
 }
+
+/* ==========================================================================
+   HERO FILM  (Cut & Signal)
+   Seven clips sequenced in the browser. The CDN blocks server-side download,
+   so there is no single stitched mp4: each clip is its own <video>, parked on
+   its in-point and revealed on cue. Only the current and next clip are ever
+   allowed to buffer, so the hero does not drag the whole reel down on first
+   paint, and playback stops entirely once the hero scrolls away.
+   ========================================================================== */
+.herofilm video,.herofilm img.hfposter{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  filter:grayscale(1) contrast(1.12) brightness(.96);
+}
+.herofilm video{opacity:0;transition:none}
+.herofilm video.live{opacity:1}
+.herofilm img.hfposter{z-index:1;transition:opacity .45s var(--e)}
+.herofilm.rolling img.hfposter{opacity:0}
+.herofilm:hover video{transform:none}   /* the .bw zoom would fight the cuts */
+
+/* one tick per shot, doubling as a quiet progress read */
+.hfticks{position:absolute;left:0;right:0;bottom:0;z-index:6;
+  display:flex;gap:3px;padding:10px}
+.hfticks i{flex:1;height:2px;background:rgba(245,245,245,.22);overflow:hidden}
+.hfticks i b{display:block;height:100%;width:0;background:var(--green)}
+.hfticks i.done b{width:100%}
+
+/* --- acid green interventions --- */
+/* a light leak at the frame edge, never a wash over the subject: the people
+   stay black and white, the colour only ever touches the border */
+.hfflash{position:absolute;inset:0;z-index:4;opacity:0;pointer-events:none;
+  background:radial-gradient(120% 90% at 50% 50%,
+    transparent 52%, rgba(198,255,0,.30) 88%, rgba(198,255,0,.62) 100%)}
+.hfflash.hit{animation:hfflash .14s ease-out 1}
+@keyframes hfflash{0%{opacity:1}100%{opacity:0}}
+
+.hfbar{position:absolute;left:0;right:0;height:3px;z-index:4;top:0;
+  background:var(--green);opacity:.85;pointer-events:none;
+  animation:hfbar 2.4s linear infinite}
+@keyframes hfbar{0%{top:-2%}100%{top:102%}}
+
+.hfcorner{position:absolute;z-index:4;width:26px;height:26px;
+  border:2px solid var(--green);pointer-events:none;opacity:.8}
+.hfcorner.tl{top:12px;left:12px;border-right:0;border-bottom:0}
+.hfcorner.br{bottom:34px;right:12px;border-left:0;border-top:0}
+
+@media(prefers-reduced-motion:reduce){
+  .herofilm video{display:none}
+  .herofilm img.hfposter{opacity:1!important}
+  .hfbar,.hfflash,.hfticks{display:none}
+}
