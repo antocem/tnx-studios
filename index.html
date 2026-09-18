@@ -591,7 +591,8 @@
     if(open){
       reelOpener=document.activeElement;
       reel.hidden=false;
-      requestAnimationFrame(function(){reel.classList.add('open')});
+      void reel.offsetWidth;          /* force reflow so the transition still runs */
+      reel.classList.add('open');     /* rAF can be throttled, so don't depend on it */
       document.body.style.overflow='hidden';
       showClip(0);
       var x=reel.querySelector('[data-reel-close]'); if(x) x.focus();
