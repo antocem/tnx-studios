@@ -69,21 +69,72 @@
     if(e.key === 'Tab') return trap(menu, e);
   });
 
-  /* ---------- scroll progress ----------
-     scaleX rather than width: this runs on every scroll frame, and width would
-     force a layout pass each time where a transform stays on the compositor. */
-  var bar = document.querySelector('.prog i');
-  if(bar){
+  /* ---------- scroll work: progress bar and image parallax ----------
+     Both live in one rAF-throttled handler so scrolling never schedules two
+     frames of work. The bar uses scaleX rather than width, because width
+     forces a layout pass on every frame where a transform stays on the
+     compositor. The parallax writes a custom property instead of a transform
+     so the hover scale on the same image still composes. */
+  var bar  = document.querySelector('.prog i');
+  var pars = reduce ? [] : [].slice.call(document.querySelectorAll('.bw.par'));
+
+  if(bar || pars.length){
     var ticking = false;
+
+    var measure = function(){
+      if(bar){
+        var h = document.documentElement.scrollHeight - window.innerHeight;
+        bar.style.transform = 'scaleX(' + (h > 0 ? Math.min(window.scrollY / h, 1) : 0) + ')';
+      }
+      var vh = window.innerHeight;
+      for(var i = 0; i < pars.length; i++){
+        var r = pars[i].getBoundingClientRect();
+        if(r.bottom < -120 || r.top > vh + 120) continue;   /* offscreen, skip */
+        /* -0.5 above the fold to +0.5 below it, scaled to a few pixels */
+        var mid = (r.top + r.height / 2) / vh;
+        pars[i].style.setProperty('--py', ((0.5 - mid) * 26).toFixed(1) + 'px');
+      }
+      ticking = false;
+    };
+
     window.addEventListener('scroll', function(){
       if(ticking) return;
       ticking = true;
-      requestAnimationFrame(function(){
-        var h = document.documentElement.scrollHeight - window.innerHeight;
-        bar.style.transform = 'scaleX(' + (h > 0 ? Math.min(window.scrollY / h, 1) : 0) + ')';
-        ticking = false;
-      });
+      requestAnimationFrame(measure);
     }, {passive:true});
+    measure();
+  }
+
+  /* ---------- contact sheet ----------
+     Rests on one frame so it reads as a photograph. Hovering thumbs through
+     the rest. Touch has no hover, so there it turns over slowly while on
+     screen instead. */
+  var sheet = document.querySelector('.sheet');
+  if(sheet){
+    var frames = [].slice.call(sheet.querySelectorAll('img'));
+    var num    = sheet.querySelector('.sheetn');
+    var si = 0, stimer = null;
+
+    var paint = function(){
+      for(var i = 0; i < frames.length; i++) frames[i].classList.toggle('on', i === si);
+      if(num) num.textContent = '0' + (si + 1) + ' / 0' + frames.length;
+    };
+    var run = function(ms){
+      clearInterval(stimer);
+      stimer = setInterval(function(){ si = (si + 1) % frames.length; paint(); }, ms);
+    };
+    var rest = function(){ clearInterval(stimer); si = 0; paint(); };
+
+    paint();
+    if(!reduce && frames.length > 1){
+      sheet.addEventListener('mouseenter', function(){ run(420); });
+      sheet.addEventListener('mouseleave', rest);
+      if(window.matchMedia('(hover:none)').matches && 'IntersectionObserver' in window){
+        new IntersectionObserver(function(es){
+          es.forEach(function(e){ e.isIntersecting ? run(2200) : rest(); });
+        }, {threshold:.4}).observe(sheet);
+      }
+    }
   }
 
   /* ---------- reveal on scroll ---------- */
