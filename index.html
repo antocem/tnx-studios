@@ -30,7 +30,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/reachers.css?v=6">
+<link rel="stylesheet" href="assets/reachers.css?v=7">
 </head>
 <body>
 
@@ -202,7 +202,11 @@
     </div>
     <div class="phonewrap">
       <div class="phone">
-        <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3FrjhNeJIhfvKQwoPywwyseIzai/hf_20260917_222627_bd7686d3-b7ae-487f-ae4e-f24b4c065d78.png" alt="Creator filming on a phone" loading="lazy" width="1152" height="2048">
+        <!-- reads as a photograph until the hands move: the clip starts and
+             ends on the still used as its poster -->
+        <video src="https://d8j0ntlcm91z4.cloudfront.net/user_3FrjhNeJIhfvKQwoPywwyseIzai/hf_20260921_112757_eaffa458-62ee-4ad9-beb2-57443d605e62.mp4"
+               poster="https://d8j0ntlcm91z4.cloudfront.net/user_3FrjhNeJIhfvKQwoPywwyseIzai/hf_20260921_105401_65f29137-95b7-4472-9300-7c7d38ffc4be.png"
+               autoplay muted loop playsinline aria-label="A creator filming a friend on a phone"></video>
       </div>
       <span class="annot"><span class="hand sm dark">Same people,<br>different<br>perspectives.</span></span>
     </div>
@@ -221,7 +225,7 @@
     </div>
     <div class="phonewrap">
       <div class="phone">
-        <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3FrjhNeJIhfvKQwoPywwyseIzai/hf_20260917_222628_268e10f6-35a3-4304-8eb8-6ee4a1a063a4.png" alt="Creator pointing a phone at the camera" loading="lazy" width="1152" height="2048">
+        <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3FrjhNeJIhfvKQwoPywwyseIzai/hf_20260921_105400_27c78545-cf95-49cd-a25e-0f8b0f2035b1.png" alt="Close crop of a creator laughing" loading="lazy" width="1152" height="2048">
         <span class="scrib" style="top:12%;left:24%;width:64px;height:48px;--len:340">
           <svg><use href="#mk-crown"/></svg>
         </span>
@@ -242,8 +246,13 @@
     <div class="stat"><b>2,000+</b><span>Collaborations</span></div>
   </div>
   <div class="statsphoto" data-r data-rd="0.1">
-    <div class="bw keep">
-      <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3FrjhNeJIhfvKQwoPywwyseIzai/hf_20260917_222628_7a00d906-fd19-4b13-ac14-804479e31ce5.png" alt="Creators from the Reachers network" loading="lazy" width="2048" height="1365">
+    <!-- three frames off one shoot. at rest it is a photograph; hovering
+         thumbs through the other two, like a marked up contact sheet -->
+    <div class="bw keep sheet">
+      <img class="on" src="https://d8j0ntlcm91z4.cloudfront.net/user_3FrjhNeJIhfvKQwoPywwyseIzai/hf_20260921_112921_208cc998-976c-42dd-bf21-8eaf4cd8c51b.png" alt="Creators from the Reachers network" loading="lazy" width="2048" height="1536">
+      <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3FrjhNeJIhfvKQwoPywwyseIzai/hf_20260921_112921_90fb5118-99fb-4dad-972a-af068997b07d.png" alt="" aria-hidden="true" loading="lazy" width="2048" height="1536">
+      <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3FrjhNeJIhfvKQwoPywwyseIzai/hf_20260921_112922_6543c71a-70ef-4018-8c1c-a01da096203e.png" alt="" aria-hidden="true" loading="lazy" width="2048" height="1536">
+      <span class="sheetn" aria-hidden="true">01 / 03</span>
     </div>
     <span class="scrib" style="top:16%;right:12%;width:clamp(70px,7vw,110px);height:80px;--len:340">
       <svg><use href="#mk-crown"/></svg>
@@ -332,13 +341,19 @@
         <p class="eyebrow">Case studies</p>
         <h2 class="h2" style="margin-top:16px">Real people.<br>Real moments.</h2>
       </div>
-      <p class="lede" data-r style="max-width:32ch">Creator content we produced and ran.
-        Named clients and full results come on the call, under NDA.</p>
+      <div data-r style="max-width:32ch">
+        <p class="lede">Creator content we produced and ran.
+          Named clients and full results come on the call, under NDA.</p>
+        <span class="annot" style="display:block;margin-top:14px">
+          <span class="hand sm">real humans.</span>
+        </span>
+      </div>
     </div>
 
     <div class="wall">
       <div class="wcell" data-r>
         <div class="bw"><video src="assets/media/v3.mp4" poster="assets/media/v3.jpg" autoplay muted loop playsinline></video>
+          <span class="mtag" aria-hidden="true">01</span>
           <div class="wdetail"><ul>
             <li>One creator, filmed on her own phone</li>
             <li>Cut for Reels, TikTok and the product page</li>
@@ -349,6 +364,7 @@
       </div>
       <div class="wcell" data-r data-rd="0.06">
         <div class="bw"><video src="assets/media/v5.mp4" poster="assets/media/v5.jpg" autoplay muted loop playsinline></video>
+          <span class="mtag" aria-hidden="true">02</span>
           <div class="wdetail"><ul>
             <li>Studio pass for the hero product frames</li>
             <li>Paired with creator-shot lifestyle</li>
@@ -359,6 +375,7 @@
       </div>
       <div class="wcell" data-r data-rd="0.12">
         <div class="bw"><video src="assets/media/v2.mp4" poster="assets/media/v2.jpg" autoplay muted loop playsinline></video>
+          <span class="mtag" aria-hidden="true">03</span>
           <div class="wdetail"><ul>
             <li>Close product handling, shot in one session</li>
             <li>Vertical master, re-cut four ways</li>
@@ -369,6 +386,7 @@
       </div>
       <div class="wcell" data-r data-rd="0.18">
         <div class="bw"><video src="assets/media/v1.mp4" poster="assets/media/v1.jpg" autoplay muted loop playsinline></video>
+          <span class="mtag" aria-hidden="true">04</span>
           <div class="wdetail"><ul>
             <li>Macro texture pass, no talent needed</li>
             <li>Shot alongside the main creator day</li>
@@ -385,7 +403,7 @@
 <section class="sect">
   <div class="wrap cultgrid">
     <div class="cultmedia" data-r>
-      <div class="bw">
+      <div class="bw par">
         <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3FrjhNeJIhfvKQwoPywwyseIzai/hf_20260918_065403_1ffc7806-2037-418f-82f2-b814fd2c1c15.png" alt="A Reachers crew filming a creator on location" loading="lazy" width="2048" height="1536">
       </div>
       <span class="scrib" style="top:-22px;left:10%;width:clamp(70px,7vw,108px);height:76px;--len:340">
@@ -548,7 +566,7 @@
   </div>
 </footer>
 
-<script src="assets/reachers.js?v=1"></script>
+<script src="assets/reachers.js?v=2"></script>
 <script>
 (function(){
   'use strict';
@@ -563,17 +581,22 @@
     if(!box) return;
 
     var CDN = 'https://d8j0ntlcm91z4.cloudfront.net/user_3FrjhNeJIhfvKQwoPywwyseIzai/';
-    var POSTER = CDN + 'hf_20260918_073745_89392dd8-7ccb-4af0-a276-a1832141d928.png';
+    var POSTER = CDN + 'hf_20260921_105400_92e11cf5-b0b0-4a66-a884-ba624d8b3c87.png';
 
-    /* in = where in the 4s clip the moment lands. hold = how long it stays up. */
+    /* Six shots rather than seven, each held about a second instead of two
+       thirds of one: the old cut ran at 4.7s total and read as a trailer.
+       This lands near 6.5s and lets each face register before the cut.
+       Every clip was animated out of a still that was checked frame by frame,
+       and starts and ends on that same still, so the cuts land on a
+       photograph rather than mid-morph.
+       in = where in the 4s clip the movement peaks. hold = time on screen. */
     var SHOTS = [
-      {f:'hf_20260918_073314_dbd8acb1-d7ad-4467-adab-8e30326e3a58.mp4', in:1.20, hold:0.70},
-      {f:'hf_20260918_073314_1690f2a7-43d6-4324-b39a-4ecfacbdf77b.mp4', in:1.40, hold:0.65},
-      {f:'hf_20260918_073314_c603f97b-15e7-432a-8f18-dcaf4988fff0.mp4', in:1.50, hold:0.60},
-      {f:'hf_20260918_073314_1af7be41-d272-4144-97fe-30efb1e48b26.mp4', in:1.30, hold:0.70},
-      {f:'hf_20260918_073314_83e8bf42-c6d4-43e1-917d-3e8dd9bbea14.mp4', in:1.50, hold:0.75},
-      {f:'hf_20260918_073314_12151755-acb7-4d06-b194-79c7d43db824.mp4', in:1.40, hold:0.60},
-      {f:'hf_20260918_073314_48b5da07-afe4-4291-bb94-a6131c937629.mp4', in:1.60, hold:0.70}
+      {f:'hf_20260921_112758_bdc5494c-386c-4e78-be09-bcafa6fb2f0a.mp4', in:1.30, hold:1.15},
+      {f:'hf_20260921_112757_135ca872-14bd-476c-b2ec-34ce4b890ded.mp4', in:1.45, hold:1.05},
+      {f:'hf_20260921_112758_89368c5f-7e23-40b3-995f-77aca5fb1090.mp4', in:1.40, hold:1.00},
+      {f:'hf_20260921_112757_d081db7d-85d0-4b9b-ba35-1d1d278e37bb.mp4', in:1.35, hold:1.15},
+      {f:'hf_20260921_112757_cb0ddf5c-8efd-45ec-8ba5-e976a0f4cab7.mp4', in:1.50, hold:0.95},
+      {f:'hf_20260921_112757_5803e28c-60d1-45f6-af50-2d32e078904b.mp4', in:1.40, hold:1.20}
     ];
 
     var poster = new Image();
