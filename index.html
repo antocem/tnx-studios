@@ -28,7 +28,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/reachers.css?v=5">
+<link rel="stylesheet" href="assets/reachers.css?v=6">
 </head>
 <body>
 
@@ -546,71 +546,10 @@
   </div>
 </footer>
 
+<script src="assets/reachers.js?v=1"></script>
 <script>
 (function(){
   'use strict';
-  var reduce=window.matchMedia('(prefers-reduced-motion:reduce)').matches;
-
-  var y=document.querySelector('[data-year]');
-  if(y) y.textContent=new Date().getFullYear();
-
-  /* ---------- helper: trap tab inside a container ---------- */
-  function trap(box,e){
-    var f=box.querySelectorAll('a[href],button:not([disabled]),video[controls],[tabindex]:not([tabindex="-1"])');
-    if(!f.length) return;
-    var first=f[0],last=f[f.length-1];
-    if(e.shiftKey && document.activeElement===first){ e.preventDefault(); last.focus(); }
-    else if(!e.shiftKey && document.activeElement===last){ e.preventDefault(); first.focus(); }
-  }
-
-  /* ---------- mobile menu ---------- */
-  var menu=document.getElementById('menu'), menuOpener=null;
-  function setMenu(open){
-    if(!menu) return;
-    menu.classList.toggle('open',open);
-    document.body.style.overflow=open?'hidden':'';
-    var b=document.querySelector('[data-menu-open]');
-    if(b) b.setAttribute('aria-expanded',String(open));
-    if(open){ menuOpener=document.activeElement; var l=menu.querySelector('a'); if(l) l.focus(); }
-    else if(menuOpener){ menuOpener.focus(); menuOpener=null; }
-  }
-
-  /* ---------- FAQ accordion ---------- */
-  function toggleFaq(btn){
-    var panel=document.getElementById(btn.getAttribute('aria-controls'));
-    if(!panel) return;
-    var open=btn.getAttribute('aria-expanded')==='true';
-    btn.setAttribute('aria-expanded',String(!open));
-    if(reduce){ panel.style.height=open?'0px':'auto'; return; }
-    if(open){
-      panel.style.height=panel.scrollHeight+'px';
-      requestAnimationFrame(function(){panel.style.height='0px'});
-    }else{
-      panel.style.height=panel.scrollHeight+'px';
-      panel.addEventListener('transitionend',function h(){
-        panel.style.height='auto'; panel.removeEventListener('transitionend',h);
-      });
-    }
-  }
-
-  /* ---------- one delegated click handler ---------- */
-  document.addEventListener('click',function(e){
-    if(e.target.closest('[data-menu-open]'))  return setMenu(true);
-    if(e.target.closest('[data-menu-close]')) return setMenu(false);
-    var fq=e.target.closest('.faqq');
-    if(fq) return toggleFaq(fq);
-  });
-
-  document.addEventListener('keydown',function(e){
-    if(e.key==='Escape'){
-      if(menu && menu.classList.contains('open')) return setMenu(false);
-    }
-    if(e.key==='Tab'){
-      if(menu && menu.classList.contains('open')) return trap(menu,e);
-    }
-  });
-
-
   /* ---------- hero film: seven clips cut in the browser ----------
      Higgsfield's CDN refuses server side download, so the sequence could not be
      flattened into one mp4. Each shot is its own <video>, parked on the second
@@ -734,63 +673,6 @@
       document.hidden ? stop() : (inView && start());
     });
   })();
-
-  /* ---------- partner logos: swap a wordmark for real art once it exists ---------- */
-  [].slice.call(document.querySelectorAll('.plogo[data-logo]')).forEach(function(tile){
-    var src=tile.getAttribute('data-logo');
-    var probe=new Image();
-    probe.onload=function(){
-      var name=(tile.querySelector('b')||{}).textContent||'';
-      tile.innerHTML='';
-      probe.alt=name; probe.loading='lazy';
-      tile.appendChild(probe);
-    };
-    probe.src=src;   /* if it 404s we simply keep the wordmark */
-  });
-
-  /* ---------- scroll progress ---------- */
-  var bar=document.querySelector('.prog i');
-  if(bar){
-    var ticking=false;
-    window.addEventListener('scroll',function(){
-      if(ticking) return;
-      ticking=true;
-      requestAnimationFrame(function(){
-        var h=document.documentElement.scrollHeight-window.innerHeight;
-        bar.style.transform='scaleX('+(h>0?Math.min(window.scrollY/h,1):0)+')';
-        ticking=false;
-      });
-    },{passive:true});
-  }
-
-  /* ---------- reveal ---------- */
-  var els=[].slice.call(document.querySelectorAll('[data-r]'));
-  if(reduce||!('IntersectionObserver' in window)){
-    els.forEach(function(el){el.classList.add('on')});
-  }else{
-    els.forEach(function(el){
-      var d=el.getAttribute('data-rd');
-      if(d) el.style.transitionDelay=d+'s';
-    });
-    var io=new IntersectionObserver(function(entries){
-      entries.forEach(function(en){
-        if(en.isIntersecting){ en.target.classList.add('on'); io.unobserve(en.target); }
-      });
-    },{rootMargin:'0px 0px -7% 0px',threshold:.05});
-    els.forEach(function(el){io.observe(el)});
-  }
-
-  /* ---------- pause offscreen video ---------- */
-  if('IntersectionObserver' in window){
-    var vio=new IntersectionObserver(function(entries){
-      entries.forEach(function(en){
-        var v=en.target;
-        if(en.isIntersecting){ var pp=v.play(); if(pp&&pp.catch) pp.catch(function(){}); }
-        else v.pause();
-      });
-    },{rootMargin:'160px'});
-    [].slice.call(document.querySelectorAll('video')).forEach(function(v){vio.observe(v)});
-  }
 })();
 </script>
 </body>
