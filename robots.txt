@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://reachers.agency/sitemap.xml
